@@ -1,0 +1,44 @@
+[{
+  "nom": "Dupont",
+  "prenom": "Jean",
+  "email": "jean@gmail.com",
+  "mot_de_passe": "",
+  "telephone": "033 00 000 00",
+  "role": {"manager","permission": ["read","write","delete","update"]}
+},
+{
+  "nom": "Durand",
+  "prenom": "Paul",
+  "email": "paul@gmail.com",
+  "mot_de_passe": "",
+  "telephone": "033 10 000 00",
+    "role": {"mécanicien","permission": ["read","write"]}
+
+},
+{
+  "nom": "Duchemin",
+  "prenom": "Marie",
+  "email": "marie@gmail.com",
+    "mot_de_passe": "",
+    "telephone": "033 20 000 00",
+    "role": {"client","permission": ["read","write"]},
+    "vehicule": {
+      "marque": "Renault",
+      "modele": "Clio",
+      "immatriculation": "AA-123-BB"
+    }
+},
+{
+    "nom": "Dufour",
+    "prenom": "Luc",
+    "email": "luc@gmail.com",
+    "mot_de_passe": "",
+    "telephone": "033 30 000 00",
+    "role": {"client","permission": ["read","write"]},
+    "vehicule": {
+      "marque": "Peugeot",
+      "modele": "208",
+      "immatriculation": "AA-456-BB"
+    }
+}
+]

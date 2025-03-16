@@ -1,0 +1,66 @@
+[
+  {
+    "nom": "Vidange",
+    "description": "Vidange de l'huile moteur",
+    "prix": 50,
+    "temps": 30,
+    "pieces": [
+      {
+        "nom": "Huile moteur",
+        "prix": 20
+      },
+      {
+        "nom": "Filtre à huile",
+        "prix": 10
+      }
+    ]
+  },
+  {
+    "nom": "diagnostique",
+    "description": "faire un diagnostique complet du véhicule",
+    "prix": 50,
+    "temps": 10
+  },
+  {
+    "nom": "peinture",
+    "description": "repeindre la voiture",
+    "prix": 50,
+    "temps": 10
+  },
+  {
+    "nom": "Freinage",
+    "description": "Changement des plaquettes de frein",
+    "prix": 100,
+    "temps": 60,
+    "pieces": [
+      {
+        "nom": "Plaquettes de frein",
+        "prix": 50
+      }
+    ]
+  },
+  {
+    "nom": "Pneumatique",
+    "description": "Changement de pneus",
+    "prix": 200,
+    "temps": 60,
+    "pieces": [
+      {
+        "nom": "Pneus",
+        "prix": 150
+      }
+    ]
+  },
+  {
+    "nom": "Freinage",
+    "description": "changement des plaquettes de frein",
+    "prix": 100,
+    "temps": 60,
+    "pieces": [
+      {
+        "nom": "Plaquettes de frein",
+        "prix": 50
+      }
+    ]
+  }
+]
