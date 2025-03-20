@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+
+# Production build
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+
+# Compiled output
+out-tsc/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (⚠️ uniquement si tu as des secrets dedans)
+src/environments/environment.prod.ts
+src/environments/environment.ts
+
+# Angular specific
+.angular/cache/
+.angular/config.json
+
+# Coverage reports
+coverage/
+
+# Sass cache
+.sass-cache/
+
+# Compiled files from aot build
+*.ngfactory.ts
+*.ngstyle.ts
+*.ngsummary.json
+
+# Test files
+test-results/
