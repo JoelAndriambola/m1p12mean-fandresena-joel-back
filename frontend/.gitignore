@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#ignorer les lib et scss du template
+src/assets/libs
+src/assets/scss
