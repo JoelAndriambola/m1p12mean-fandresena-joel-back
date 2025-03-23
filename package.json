@@ -9,15 +9,16 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "*",
-    "mongoose": "*",
     "bcryptjs": "*",
-    "cors": "*",
-    "jsonwebtoken": "*",
     "body-parser": "*",
+    "cors": "*",
+    "dotenv": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
     "passport": "*",
     "passport-jwt": "*",
-    "dotenv": "*"
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "nodemon": "*"
