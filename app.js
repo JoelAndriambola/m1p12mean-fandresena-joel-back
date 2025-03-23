@@ -18,8 +18,8 @@ const utilisateurRoutes = require('./routes/utilisateurRoutes');
 const vehiculeRoutes = require('./routes/vehiculeRoutes');
 
 // Définition des points de montage des routes
-app.use('/api/utilisateurs', utilisateurRoutes);
-app.use('/api/vehicules', vehiculeRoutes);
+app.use('/api', utilisateurRoutes);
+app.use('/api', vehiculeRoutes);
 
 // Connexion à MongoDB
 mongoose.connect(process.env.MONGO_URI, { 
