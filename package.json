@@ -1,0 +1,28 @@
+{
+  "name": "garage",
+  "version": "1.0.0",
+  "description": "Garage application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "dotenv": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "author": "Fandresena & Joel",
+  "license": "ISC"
+}
