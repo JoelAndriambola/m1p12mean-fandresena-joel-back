@@ -101,3 +101,78 @@ exports.getAllUsers = async (req, res) => {
       res.status(500).json({ message: 'Erreur du serveur', error: error.message });
     }
 };
+
+// Fonction pour supprimer un utilisateur
+exports.deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Supprimer l'utilisateur par ID
+    const deletedUser = await Utilisateur.findByIdAndDelete(id);
+
+    // Vérifier si l'utilisateur existe
+    if (!deletedUser) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé' });
+    }
+
+    res.status(200).json({ message: 'Utilisateur supprimé avec succès' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur serveur', error: error.message });
+  }
+};
+
+// Fonction pour mettre à jour un utilisateur
+exports.updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { nom, prenom, email, telephone, mot_de_passe } = req.body;
+
+    // Si un mot de passe est fourni, le hasher
+    let updatedFields = { nom, prenom, email, telephone };
+    if (mot_de_passe) {
+      const hashedPassword = await bcrypt.hash(mot_de_passe, 10);
+      updatedFields.mot_de_passe = hashedPassword;
+    }
+
+    // Mettre à jour l'utilisateur par ID
+    const updatedUser = await Utilisateur.findByIdAndUpdate(
+      id,
+      { $set: updatedFields },
+      { new: true, runValidators: true } // Retourne l'utilisateur mis à jour
+    );
+
+    // Vérifier si l'utilisateur existe
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé' });
+    }
+
+    res.status(200).json({ message: 'Utilisateur mis à jour avec succès', utilisateur: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur serveur', error: error.message });
+  }
+};
+
+// Fonction pour récupérer un utilisateur par ID
+exports.getUtilisateurById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Rechercher l'utilisateur par ID
+    const utilisateur = await Utilisateur.findById(id);
+
+    // Vérifier si l'utilisateur existe
+    if (!utilisateur) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé' });
+    }
+
+    // Renvoyer l'utilisateur trouvé
+    res.status(200).json(utilisateur);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Erreur serveur', error: error.message });
+  }
+};
+
+
