@@ -12,4 +12,4 @@ const interventionSchema = new mongoose.Schema({
   type_intervention: [{ type: mongoose.Schema.Types.ObjectId, ref: "Service" }],
 });
 
-module.exports = mongoose.model("Intervention", interventionSchema);
+module.exports = mongoose.model("HistoriqueIntervention", interventionSchema);
