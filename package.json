@@ -6,13 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "seed": "node database/seed.js",
+    "reset": "node database/reset.js"
   },
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
     "cors": "*",
-    "dotenv": "*",
+    "dotenv": "^16.4.7",
     "express": "*",
     "jsonwebtoken": "*",
     "mongoose": "*",
