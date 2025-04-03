@@ -29,3 +29,5 @@ dump/               # Backups si tu utilises mongodump
 # =========================
 .env.local
 .env.*.local
+
+curl.sh
