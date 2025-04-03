@@ -18,8 +18,10 @@ const utilisateurRoutes = require("./routes/utilisateurRoutes");
 const vehiculeRoutes = require("./routes/vehiculeRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
 const interventionRoutes = require("./routes/interventionRoutes");
+const rendezVousRoutes = require("./routes/rendezVousRoutes");
 
 // Définition des points de montage des routes
+app.use("/api", rendezVousRoutes);
 app.use("/api", interventionRoutes);
 app.use("/api", utilisateurRoutes);
 app.use("/api", vehiculeRoutes);

@@ -1,4 +1,6 @@
+const HistoriqueIntervention = require("../models/HistoriqueIntervention");
 const Intervention = require("../models/Intervention");
+const RendezVous = require("../models/RendezVous");
 
 // Récupérer toutes les interventions
 exports.getAllInterventions = async (req, res) => {
@@ -8,12 +10,10 @@ exports.getAllInterventions = async (req, res) => {
     );
     res.status(200).json(interventions);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la récupération des interventions",
-        error,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la récupération des interventions",
+      error,
+    });
   }
 };
 
@@ -28,20 +28,37 @@ exports.getInterventionById = async (req, res) => {
     }
     res.status(200).json(intervention);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la récupération de l'intervention",
-        error,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la récupération de l'intervention",
+      error,
+    });
   }
 };
 
-// Créer une nouvelle intervention
+// Initialiser dans la parti" front les etats des service puis envoyer dans le back toutes les donnés
 exports.createIntervention = async (req, res) => {
   try {
+    // Mettre à jour le statut du rendez-vous en "Confirmé" avant de créer l'intervention
+    if (req.body.rdv_id) {
+      const updatedRendezVous = await RendezVous.findByIdAndUpdate(
+        req.body.rdv_id,
+        { statut: "Confirmé" },
+        { new: true }
+      );
+
+      if (!updatedRendezVous) {Intervention
+        return res.status(404).json({ message: "Rendez-vous non trouvé" });
+      }
+    }
+
+    // Créer une nouvelle intervention
     const newIntervention = new Intervention(req.body);
     const savedIntervention = await newIntervention.save();
+
+    // Ajouter l'intervention dans l'historique
+    const historique = new HistoriqueIntervention(savedIntervention.toObject());
+    await historique.save();
+
     res.status(201).json(savedIntervention);
   } catch (error) {
     res
@@ -63,12 +80,10 @@ exports.updateIntervention = async (req, res) => {
     }
     res.status(200).json(updatedIntervention);
   } catch (error) {
-    res
-      .status(400)
-      .json({
-        message: "Erreur lors de la mise à jour de l'intervention",
-        error,
-      });
+    res.status(400).json({
+      message: "Erreur lors de la mise à jour de l'intervention",
+      error,
+    });
   }
 };
 
@@ -83,11 +98,9 @@ exports.deleteIntervention = async (req, res) => {
     }
     res.status(200).json({ message: "Intervention supprimée avec succès" });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Erreur lors de la suppression de l'intervention",
-        error,
-      });
+    res.status(500).json({
+      message: "Erreur lors de la suppression de l'intervention",
+      error,
+    });
   }
 };

@@ -4,6 +4,7 @@ const Utilisateur = require("../models/Utilisateur");
 const Vehicule = require("../models/Vehicule");
 const Service = require("../models/Service");
 const Intervention = require("../models/Intervention");
+const RendezVous = require("../models/RendezVous");
 require("dotenv").config();
 
 async function resetDatabase() {
@@ -32,6 +33,9 @@ async function resetDatabase() {
 
     await Intervention.deleteMany({});
     console.log("Collection Intervention réinitialisée");
+
+    await RendezVous.deleteMany({});
+    console.log("Collection RendezVous réinitialisée");
 
     console.log("Database reset successfully!");
   } catch (error) {
