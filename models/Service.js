@@ -1,15 +1,23 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const serviceSchema = new mongoose.Schema({
-  id: { type: String, required: true, unique: true }, // UUID
   nom: { type: String, required: true },
   categorie: {
     type: String,
-    enum: ['Diagnostique', 'Entretien', 'Réparation'],
-    required: true
+    enum: ["Diagnostique", "Entretien", "Réparation"],
+    required: true,
   },
-  tarif: { type: Number, required: true },
-  duree_estimee: { type: Number, required: true }
+  prix: { type: Number, required: true },
+  piece_utilisee: [
+    {
+      piece: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "PieceDetachee",
+        nullable: true,
+      },
+      quantité_utilise: { type: Number, nullable: true },
+    },
+  ], // Référence aux pièces détachées
 });
 
-module.exports = mongoose.model('Service', serviceSchema);
+module.exports = mongoose.model("Service", serviceSchema);
