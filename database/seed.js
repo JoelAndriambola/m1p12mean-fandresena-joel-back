@@ -58,9 +58,9 @@ async function seedDatabase() {
 
     // Ajout des rôles
     const roles = await Role.insertMany([
+      { role: "Client" },
       { role: "Manager" },
       { role: "Mécanicien" },
-      { role: "Client" },
     ]);
     console.log("Rôles ajoutés :", roles);
 
@@ -112,22 +112,22 @@ async function seedDatabase() {
     // Ajout des véhicules
     const vehicules = await Vehicule.insertMany([
       {
-      marque: "Toyota",
-      modele: "Corolla",
-      annee: 2015,
-      plaque_immatriculation: "AB-123-CD",
+        marque: "Toyota",
+        modele: "Corolla",
+        annee: 2015,
+        plaque_immatriculation: "AB-123-CD",
       },
       {
-      marque: "Honda",
-      modele: "Civic",
-      annee: 2018,
-      plaque_immatriculation: "EF-456-GH",
+        marque: "Honda",
+        modele: "Civic",
+        annee: 2018,
+        plaque_immatriculation: "EF-456-GH",
       },
       {
-      marque: "Ford",
-      modele: "Focus",
-      annee: 2020,
-      plaque_immatriculation: "IJ-789-KL",
+        marque: "Ford",
+        modele: "Focus",
+        annee: 2020,
+        plaque_immatriculation: "IJ-789-KL",
       },
     ]);
     console.log("Véhicules ajoutés :", vehicules);
