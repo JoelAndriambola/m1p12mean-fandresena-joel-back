@@ -33,7 +33,8 @@ exports.createVehicule = async (req, res) => {
 // Récupérer tous les véhicules
 exports.getAllVehicules = async (req, res) => {
   try {
-    const vehicules = await Vehicule.find();
+    // Récupérer tous les véhicules avec les informations du propriétaire
+    const vehicules = await Vehicule.find().populate('utilisateur_id', 'prenom nom');
 
     if (!vehicules || vehicules.length === 0) {
       return res.status(404).json({ message: 'Aucun véhicule trouvé' });
@@ -41,7 +42,7 @@ exports.getAllVehicules = async (req, res) => {
 
     res.status(200).json(vehicules);
   } catch (error) {
-    console.error(error);
+    console.error('Erreur lors de la récupération des véhicules :', error);
     res.status(500).json({ message: 'Erreur serveur', error: error.message });
   }
 };
