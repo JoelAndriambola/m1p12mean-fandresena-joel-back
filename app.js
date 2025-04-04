@@ -19,6 +19,8 @@ const vehiculeRoutes = require("./routes/vehiculeRoutes");
 const serviceRoutes = require("./routes/serviceRoutes");
 const interventionRoutes = require("./routes/interventionRoutes");
 const rendezVousRoutes = require("./routes/rendezVousRoutes");
+const pieceRoutes = require("./routes/pieceRoutes");
+const historiqueUtilisationPieceRoutes = require("./routes/historiqueUtilisationPieceRoutes");
 
 // Définition des points de montage des routes
 app.use("/api", rendezVousRoutes);
@@ -26,6 +28,8 @@ app.use("/api", interventionRoutes);
 app.use("/api", utilisateurRoutes);
 app.use("/api", vehiculeRoutes);
 app.use("/api", serviceRoutes);
+app.use("/api", pieceRoutes);
+app.use("/api", historiqueUtilisationPieceRoutes);
 
 // Connexion à MongoDB
 mongoose

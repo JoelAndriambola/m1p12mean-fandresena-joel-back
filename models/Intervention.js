@@ -12,7 +12,6 @@ const interventionSchema = new mongoose.Schema({
   date_debut: { type: Date, required: false },
   date_fin: { type: Date, required: false },
 
-  // Tableau des services avec les pièces utilisées
   // select by id service_id puis insert ou update dans intervention avec les nb piece utilisé
   services: [
     {
