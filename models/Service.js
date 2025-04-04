@@ -8,16 +8,7 @@ const serviceSchema = new mongoose.Schema({
     required: true,
   },
   prix: { type: Number, required: true },
-  piece_utilisee: [
-    {
-      piece: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "PieceDetachee",
-        nullable: true,
-      },
-      quantité_utilise: { type: Number, nullable: true },
-    },
-  ], // Référence aux pièces détachées
+  // Référence aux pièces détachées
 });
 
 module.exports = mongoose.model("Service", serviceSchema);

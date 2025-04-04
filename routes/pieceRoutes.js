@@ -8,5 +8,4 @@ router.get('/pieces/:id', pieceController.getPieceById); // Récupérer une piè
 router.post('/pieces', pieceController.createPiece); // Créer une nouvelle pièce
 router.put('/pieces/:id', pieceController.updatePiece); // Mettre à jour une pièce par ID
 router.delete('/pieces/:id', pieceController.deletePiece); // Supprimer une pièce par ID
-
 module.exports = router;
