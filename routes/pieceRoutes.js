@@ -1,12 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const pieceController = require("../controllers/pieceController");
+const pieceController = require('../controllers/pieceDetacheeController');
 
-// Route pour pour les pièces détachées
-router.post("/pieces", pieceController.createPiece);
-router.get("/pieces", pieceController.getAllPieces);
-router.get("/pieces/:id", pieceController.getPieceById);
-router.put("/pieces/:id", pieceController.updatePiece);
-router.delete("/pieces/:id", pieceController.deletePiece);
-
+// Routes pour les pièces détachées
+router.get('/pieces', pieceController.getAllPieces); // Récupérer toutes les pièces
+router.get('/pieces/:id', pieceController.getPieceById); // Récupérer une pièce par ID
+router.post('/pieces', pieceController.createPiece); // Créer une nouvelle pièce
+router.put('/pieces/:id', pieceController.updatePiece); // Mettre à jour une pièce par ID
+router.delete('/pieces/:id', pieceController.deletePiece); // Supprimer une pièce par ID
 module.exports = router;
